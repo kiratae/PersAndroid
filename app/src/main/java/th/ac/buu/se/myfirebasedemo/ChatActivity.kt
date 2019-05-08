@@ -25,6 +25,8 @@ class ChatActivity : AppCompatActivity() {
     var mDatabase: FirebaseDatabase? = FirebaseDatabase.getInstance()
     var mFirebaseAdapter: FirebaseRecyclerAdapter<ChatData, MessageViewHolder>? = null
 
+    var noLoginUserText = "ANONYMOUS"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
@@ -44,10 +46,14 @@ class ChatActivity : AppCompatActivity() {
 
         btn_send.setOnClickListener {
             var input_text = findViewById<EditText>(R.id.input_text)
+            var messagerText = mAuth!!.currentUser!!.email.toString()
+            if(messagerText == "null"){
+                messagerText = noLoginUserText
+            }
             var messageText = input_text.text.toString()
             if (messageText != "") {
                 mReference.child("chat").push().setValue(
-                    ChatData(messageText, mAuth!!.currentUser!!.email.toString())
+                    ChatData(messageText, messagerText)
 //                    ChatData(messageText, "kiratae")
                 )
             } else {
@@ -82,7 +88,10 @@ class ChatActivity : AppCompatActivity() {
                 chatData: ChatData
             ) {
                 Log.d("FIREBASENAJA", chatData.messageText)
-                if (chatData.messageUser.equals(mAuth!!.currentUser!!.email.toString())) {
+                if (
+                    chatData.messageUser.equals(mAuth!!.currentUser!!.email.toString())
+                    || chatData.messageUser.equals(noLoginUserText)
+                ) {
                     viewHolder.row.setGravity(Gravity.END)
                 } else {
                     viewHolder.row.setGravity(Gravity.START)
