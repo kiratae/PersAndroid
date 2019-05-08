@@ -1,17 +1,12 @@
 package th.ac.buu.se.myfirebasedemo
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.AuthResult
-import com.google.android.gms.tasks.Task
-import android.R.attr.password
-import android.util.Log
-import android.R.attr.password
 
 
 class AuthActivity : AppCompatActivity() {
@@ -36,6 +31,51 @@ class AuthActivity : AppCompatActivity() {
         var input_email = findViewById<EditText>(R.id.input_email)
         var input_pass = findViewById<EditText>(R.id.input_pass)
 
+        mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
+            val user = firebaseAuth.currentUser
+            if (user != null) {
+                Log.d("FIREBASENAJA", user.uid)
+                finish()
+            } else {
+
+            }
+        }
+
+        btn_regis.setOnClickListener {
+            var email = input_email.text.toString()
+            var pass = input_pass.text.toString()
+            if (email == "" || pass == "") {
+                Toast.makeText(this, "No Email or Pass", Toast.LENGTH_SHORT).show()
+            } else {
+                mAuth!!.createUserWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(this) { task ->
+                        if (!task.isSuccessful) {
+                            Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        }
+                        Log.d("FIREBASENAJA", task.exception.toString())
+                        // ...
+                    }
+            }
+        }
+
+        btn_login.setOnClickListener {
+
+            var email = input_email.text.toString()
+            var pass = input_pass.text.toString()
+
+            if (email == "" || pass == "") {
+                Toast.makeText(this, "No Email or Pass", Toast.LENGTH_SHORT).show()
+            } else {
+                mAuth!!.signInWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(this) { task ->
+                        if (!task.isSuccessful) {
+                            Log.w("", "signInWithEmail")
+                            Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        }
+                        // ...
+                    }
+            }
+        }
 
 
     }
