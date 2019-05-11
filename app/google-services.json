@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "615024463282",
+    "firebase_url": "https://pers-se-buu.firebaseio.com",
+    "project_id": "pers-se-buu",
+    "storage_bucket": "pers-se-buu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615024463282:android:510fbac2f742e59b",
+        "android_client_info": {
+          "package_name": "th.ac.buu.se.pers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615024463282-9id61mk4ugv0d951a578je7aajj9a5c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "th.ac.buu.se.pers",
+            "certificate_hash": "b9e9c7db85457f900c913978d0c58a171111b85d"
+          }
+        },
+        {
+          "client_id": "615024463282-7u85e7cjdhlm1c4m8ukh826rur9q91lu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTfX-PE-auFFBHLwxVSxC3IiPs5Gp21HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615024463282-7u85e7cjdhlm1c4m8ukh826rur9q91lu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

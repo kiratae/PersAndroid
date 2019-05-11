@@ -1,4 +1,4 @@
-package th.ac.buu.se.myfirebasedemo
+package th.ac.buu.se.pers
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

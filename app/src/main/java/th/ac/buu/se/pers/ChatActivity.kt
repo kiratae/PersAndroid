@@ -1,11 +1,10 @@
-package th.ac.buu.se.myfirebasedemo
+package th.ac.buu.se.pers
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,15 +14,16 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import com.google.firebase.database.collection.LLRBNode
 
 
 class ChatActivity : AppCompatActivity() {
 
+    var COLLECTION_QUESTION = "question"
+
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
     var mAuthListener: FirebaseAuth.AuthStateListener? = null
     var mDatabase: FirebaseDatabase? = FirebaseDatabase.getInstance()
-    var mFirebaseAdapter: FirebaseRecyclerAdapter<ChatData, MessageViewHolder>? = null
+    var mFirebaseAdapter: FirebaseRecyclerAdapter<QuestionData, MessageViewHolder>? = null
 
     var noLoginUserText = "ANONYMOUS"
 
@@ -42,22 +42,18 @@ class ChatActivity : AppCompatActivity() {
         var btn_logout = findViewById<Button>(R.id.btn_logout)
 
 
-        var mReference = mDatabase!!.getReference()
+        var mReference = mDatabase!!.reference
 
         btn_send.setOnClickListener {
             var input_text = findViewById<EditText>(R.id.input_text)
             var messagerText = mAuth!!.currentUser!!.email.toString()
-            if(messagerText == "null"){
-                messagerText = noLoginUserText
-            }
             var messageText = input_text.text.toString()
             if (messageText != "") {
-                mReference.child("chat").push().setValue(
-                    ChatData(messageText, messagerText)
-//                    ChatData(messageText, "kiratae")
+                mReference.child("question").push().setValue(
+                    QuestionData("0", messageText, "1")
                 )
             } else {
-                Toast.makeText(this, "No Message ?", Toast.LENGTH_LONG)
+                Toast.makeText(this, "No Message ?", Toast.LENGTH_LONG).show()
             }
             input_text.setText("")
         }
@@ -68,7 +64,7 @@ class ChatActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user == null) {
-                finish()
+//                finish()
             }
 
         }
@@ -76,34 +72,24 @@ class ChatActivity : AppCompatActivity() {
         var list_chat = findViewById<RecyclerView>(R.id.list_chat)
         list_chat.layoutManager = LinearLayoutManager(this)
 
-        var query: Query = mReference.child("chat")
-        var option = FirebaseRecyclerOptions.Builder<ChatData>()
-            .setQuery(query, ChatData::class.java!!)
+        var query: Query = mReference.child("question")
+        var option = FirebaseRecyclerOptions.Builder<QuestionData>()
+            .setQuery(query, QuestionData::class.java)
             .build()
 
-        mFirebaseAdapter = object : FirebaseRecyclerAdapter<ChatData, MessageViewHolder>(option) {
-            protected override fun onBindViewHolder(
-                viewHolder: MessageViewHolder,
-                position: Int,
-                chatData: ChatData
-            ) {
-                Log.d("FIREBASENAJA", chatData.messageText)
-                if (
-                    chatData.messageUser.equals(mAuth!!.currentUser!!.email.toString())
-                    || chatData.messageUser.equals(noLoginUserText)
-                ) {
-                    viewHolder.row.setGravity(Gravity.END)
-                } else {
-                    viewHolder.row.setGravity(Gravity.START)
-                }
-                viewHolder.messageTextView.setText(chatData.messageText)
-                viewHolder.messengerTextView.setText(chatData.messageUser)
+        Log.i("FIREBASENAJA", query.toString())
+
+        mFirebaseAdapter = object : FirebaseRecyclerAdapter<QuestionData, MessageViewHolder>(option){
+            override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MessageViewHolder {
+                val inflater = LayoutInflater.from(p0.context)
+                return MessageViewHolder(inflater.inflate(R.layout.item_message, p0, false))
             }
 
-            override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MessageViewHolder {
-                val inflater = LayoutInflater.from(viewGroup.context)
-                return MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false))
+            override fun onBindViewHolder(holder: MessageViewHolder, position: Int, model: QuestionData) {
+                holder.messageTextView.text = model.text
+                holder.messengerTextView.text = model.id.toString()
             }
+
         }
         list_chat.adapter = mFirebaseAdapter
 

@@ -1,4 +1,4 @@
-package th.ac.buu.se.myfirebasedemo
+package th.ac.buu.se.pers
 
 import android.content.Intent
 import android.os.Bundle
