@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var btn_auth = findViewById<Button>(R.id.btn_auth)
-        var btn_no_auth = findViewById<Button>(R.id.btn_no_auth)
+        //var btn_no_auth = findViewById<Button>(R.id.btn_no_auth)
 
         btn_auth.setOnClickListener {
-            var intent = Intent(this.applicationContext, AuthActivity::class.java)
+            //var intent = Intent(this.applicationContext, AuthActivity::class.java)
             //startActivity(intent)
         }
 
