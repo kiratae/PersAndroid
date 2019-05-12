@@ -8,27 +8,15 @@
         tools:context=".MainActivity">
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <Button
+                android:text="QUESTION"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher_round"
-                android:id="@+id/imageView" tools:srcCompat="@mipmap/ic_launcher_round"/>
-        <LinearLayout
-                android:orientation="horizontal"
+                android:layout_height="wrap_content" android:id="@+id/question_btn"/>
+        <Button
+                android:text="EXAMINATION"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <Button
-                    android:text="Basic [No Auth]"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/btn_no_auth" android:layout_weight="1"/>
-            <Button
-                    android:text="Advance [Auth]"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/btn_auth" android:layout_weight="1"/>
-        </LinearLayout>
+                android:layout_height="wrap_content" android:id="@+id/examination_btn"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
