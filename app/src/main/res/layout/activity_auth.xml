@@ -34,26 +34,24 @@
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="username or email"
+                        android:inputType="textEmailAddress"
                         android:ems="10"
-                        android:id="@+id/input_email" android:layout_weight="1"/>
+                        android:id="@+id/input_email" android:layout_weight="1" android:hint="username or email"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <TextView
-                        android:text="PASSWOERD"
+                        android:text="PASSWORD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="1"/>
                 <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="password"
+                        android:inputType="textPassword"
                         android:ems="10"
-                        android:id="@+id/input_pass" android:layout_weight="1"/>
+                        android:id="@+id/input_pass" android:layout_weight="1" android:hint="password"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"

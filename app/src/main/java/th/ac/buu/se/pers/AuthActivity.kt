@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 class AuthActivity : AppCompatActivity() {
 
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
-    var mAuthListener: FirebaseAuth.AuthStateListener? = null;
+    var mAuthListener: FirebaseAuth.AuthStateListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +23,6 @@ class AuthActivity : AppCompatActivity() {
         val actionbar = supportActionBar
         //set actionbar title
         actionbar!!.title = "Auth Activity"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
 
         var btn_login = findViewById<Button>(R.id.btn_login)
         var btn_regis = findViewById<Button>(R.id.btn_regis)
@@ -35,10 +32,12 @@ class AuthActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
+                Log.i("FIREBASENAJA", user!!.uid)
                 var intent = Intent(this.applicationContext, MainActivity::class.java)
-//                startActivity(intent)
+                startActivity(intent)
             } else {
                 // User is signed out
+                Log.i("FIREBASENAJA", "signed out")
             }
         }
 
@@ -48,6 +47,7 @@ class AuthActivity : AppCompatActivity() {
             if (email == "" || pass == "") {
                 Toast.makeText(this, "No Email or Pass", Toast.LENGTH_SHORT).show()
             } else {
+
                 mAuth!!.createUserWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this) { task ->
                         if (!task.isSuccessful) {
