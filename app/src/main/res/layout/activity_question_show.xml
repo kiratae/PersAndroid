@@ -7,4 +7,47 @@
         android:layout_height="match_parent"
         tools:context=".QuestionActivity">
 
+
+    <TextView
+            android:text="TextView"
+            android:layout_width="302dp"
+            android:layout_height="35dp" tools:layout_editor_absoluteY="461dp"
+            tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_4"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="302dp"
+            android:layout_height="35dp" tools:layout_editor_absoluteY="403dp"
+            tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_3"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="302dp"
+            android:layout_height="35dp" tools:layout_editor_absoluteY="295dp"
+            tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_1"/>
+    <TextView
+            android:text="คำถาม"
+            android:layout_width="359dp"
+            android:layout_height="56dp"
+            android:id="@+id/Question" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="0.222"
+            android:textSize="36sp"
+            android:typeface="normal" android:lineSpacingExtra="24sp" android:textStyle="bold"
+            android:textAllCaps="true" tools:layout_editor_absoluteY="118dp"/>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="395dp"
+            android:layout_height="3dp"
+            android:background="#000000"
+            tools:layout_editor_absoluteY="174dp" tools:layout_editor_absoluteX="8dp"
+            android:backgroundTint="#020202"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="377dp"
+            android:layout_height="83dp" tools:layout_editor_absoluteY="190dp"
+            tools:layout_editor_absoluteX="16dp" android:id="@+id/qs_1"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="302dp"
+            android:layout_height="35dp" tools:layout_editor_absoluteY="348dp"
+            tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_2"/>
 </android.support.constraint.ConstraintLayout>
