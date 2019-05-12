@@ -46,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
 
         btn_send.setOnClickListener {
             var input_text = findViewById<EditText>(R.id.input_text)
-            var messagerText = mAuth!!.currentUser!!.email.toString()
+            //var messagerText = mAuth!!.currentUser!!.email.toString()
             var messageText = input_text.text.toString()
             if (messageText != "") {
                 mReference.child("question").push().setValue(
@@ -123,7 +123,7 @@ class ChatActivity : AppCompatActivity() {
 
         init {
             row = itemView.findViewById(R.id.row)
-            messageTextView = itemView.findViewById(R.id.show_message)
+            messageTextView = itemView.findViewById(R.id.show_name)
             messengerTextView = itemView.findViewById(R.id.show_name)
         }
     }
