@@ -16,8 +16,9 @@
                 android:layout_width="430dp"
                 android:layout_height="208dp">
             <TextView
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="51dp" android:id="@+id/edit_text" android:text="Edit Correct answer"
+                    android:layout_height="51dp" android:id="@+id/edit_text" android:text="แก้ไขคำตอบถูก"
                     android:textSize="36sp" android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textAlignment="center"/>
             <EditText
@@ -26,7 +27,7 @@
                     android:layout_height="82dp"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/edit_correct" android:hint="Correct answer"/>
+                    android:id="@+id/edit_correct" android:hint="คำตอบถูก"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -34,29 +35,32 @@
                 android:layout_height="wrap_content">
             <TextView
                     android:layout_marginTop="20dp"
-                    android:text="Edit Incorrect answer"
+                    android:text="แก้ไขคำตอบลวง"
                     android:layout_width="match_parent"
                     android:layout_height="54dp" android:id="@+id/edit_text2" android:textSize="36sp"
                     android:textAlignment="center"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"/>
             <EditText
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect1" android:hint="Incorrect answer1"/>
+                    android:id="@+id/edit_incorrect1" android:hint="คำตอบลวง1"/>
             <EditText
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect2" android:hint="Incorrect answer2"/>
+                    android:id="@+id/edit_incorrect2" android:hint="คำตอบลวง2"/>
             <EditText
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect3" android:hint="Incorrect answer3"/>
+                    android:id="@+id/edit_incorrect3" android:hint="คำตอบลวง3"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -64,12 +68,12 @@
                 android:layout_marginTop="30dp"
                 android:layout_height="match_parent">
             <Button
-                    android:text="Cancel"
+                    android:text="ยกเลิก"
                     android:layout_width="184dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/button"/>
             <Button
-                    android:text="Confirm"
+                    android:text="ยืนยัน"
                     android:layout_width="217dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/button2" android:textAlignment="center"/>
