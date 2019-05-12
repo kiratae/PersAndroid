@@ -6,5 +6,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ExamActivity">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="409dp"
+            android:layout_height="730dp" tools:layout_editor_absoluteX="-2dp" tools:ignore="MissingConstraints">
+        <TextView
+                android:text="คำถาม"
+                android:layout_width="359dp"
+                android:layout_height="56dp"
+                android:id="@+id/Question" android:layout_marginStart="10dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="36sp"
+                android:typeface="normal" android:lineSpacingExtra="24sp" android:textStyle="bold"
+                android:textAllCaps="true"/>
+        <View
+                android:id="@+id/divider"
+                android:layout_width="390dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                android:backgroundTint="#020202"
+                android:layout_marginLeft="10dp"/>
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="0dp"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
