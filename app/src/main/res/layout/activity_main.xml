@@ -13,10 +13,10 @@
         <Button
                 android:text="QUESTION"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/question"/>
+                android:layout_height="wrap_content" android:id="@+id/question_btn"/>
         <Button
                 android:text="EXAMINATION"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/examination"/>
+                android:layout_height="wrap_content" android:id="@+id/examination_btn"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
