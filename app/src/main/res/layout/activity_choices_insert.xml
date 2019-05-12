@@ -25,9 +25,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="82dp"
                     android:inputType="textPersonName"
-                    android:text="answer"
                     android:ems="10"
-                    android:id="@+id/edit_correct"/>
+                    android:id="@+id/edit_correct" android:hint="Correct answer"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -44,23 +43,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect"/>
+                    android:id="@+id/edit_incorrect1" android:hint="Incorrect answer1"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect2"/>
+                    android:id="@+id/edit_incorrect2" android:hint="Incorrect answer2"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:inputType="textPersonName"
-                    android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/edit_incorrect3"/>
+                    android:id="@+id/edit_incorrect3" android:hint="Incorrect answer3"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -71,12 +67,12 @@
                     android:text="Cancel"
                     android:layout_width="184dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cancel"/>
+                    android:id="@+id/button"/>
             <Button
                     android:text="Confirm"
                     android:layout_width="217dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/confirm" android:textAlignment="center"/>
+                    android:id="@+id/button2" android:textAlignment="center"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
