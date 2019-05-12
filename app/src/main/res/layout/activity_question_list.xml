@@ -7,4 +7,10 @@
         android:layout_height="match_parent"
         tools:context=".QuestionListActivity">
 
+    <android.support.v7.widget.RecyclerView
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_question" android:id="@+id/recycler_question"/>
+
 </android.support.constraint.ConstraintLayout>
