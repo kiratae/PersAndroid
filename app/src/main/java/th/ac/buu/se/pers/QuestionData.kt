@@ -7,7 +7,7 @@ class QuestionData {
 
     var text: String? = null
     var status: String? = null
-    var time: Long = 0
+//    var time: Long = 0
 
     constructor(
         text: String,
@@ -16,7 +16,7 @@ class QuestionData {
         this.text = text
         this.status = status
 
-        this.time = Date().time
+//        this.time = Date().time
     }
 
     constructor() {}
