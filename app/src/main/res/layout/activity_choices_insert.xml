@@ -17,7 +17,7 @@
                 android:layout_height="208dp">
             <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="51dp" android:id="@+id/textView2" android:text="Edit Correct answer"
+                    android:layout_height="51dp" android:id="@+id/edit_text" android:text="Edit Correct answer"
                     android:textSize="36sp" android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textAlignment="center"/>
             <EditText
@@ -27,7 +27,7 @@
                     android:inputType="textPersonName"
                     android:text="answer"
                     android:ems="10"
-                    android:id="@+id/editText2"/>
+                    android:id="@+id/edit_correct"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -37,7 +37,7 @@
                     android:layout_marginTop="20dp"
                     android:text="Edit Incorrect answer"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp" android:id="@+id/textView3" android:textSize="36sp"
+                    android:layout_height="54dp" android:id="@+id/edit_text2" android:textSize="36sp"
                     android:textAlignment="center"
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"/>
             <EditText
@@ -46,21 +46,21 @@
                     android:inputType="textPersonName"
                     android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/editText3"/>
+                    android:id="@+id/edit_incorrect"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/editText4"/>
+                    android:id="@+id/edit_incorrect2"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:inputType="textPersonName"
                     android:text="Incorrect answer"
                     android:ems="10"
-                    android:id="@+id/editText5"/>
+                    android:id="@+id/edit_incorrect3"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -71,12 +71,12 @@
                     android:text="Cancel"
                     android:layout_width="184dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button"/>
+                    android:id="@+id/cancel"/>
             <Button
                     android:text="Confirm"
                     android:layout_width="217dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button2" android:textAlignment="center"/>
+                    android:id="@+id/confirm" android:textAlignment="center"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
