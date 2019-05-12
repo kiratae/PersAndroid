@@ -46,7 +46,7 @@ class ChatActivity : AppCompatActivity() {
 
         btn_send.setOnClickListener {
             var input_text = findViewById<EditText>(R.id.input_text)
-            var messagerText = mAuth!!.currentUser!!.email.toString()
+            //var messagerText = mAuth!!.currentUser!!.email.toString()
             var messageText = input_text.text.toString()
             if (messageText != "") {
                 mReference.child("question").push().setValue(
