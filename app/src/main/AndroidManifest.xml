@@ -9,11 +9,27 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="th.ac.buu.se.pers.AuthActivity">
+        <activity android:name=".QuestionActivity">
         </activity>
-        <activity android:name="th.ac.buu.se.pers.ChatActivity">
+        <activity android:name=".ExamActivity">
         </activity>
-        <activity android:name="th.ac.buu.se.pers.MainActivity">
+        <activity android:name=".ExamInsertActivity">
+        </activity>
+        <activity android:name=".ExamListActivity">
+        </activity>
+        <activity android:name=".ExamSubjectActivity">
+        </activity>
+        <activity android:name=".QuestionInsertActivity">
+        </activity>
+        <activity android:name=".QuestionListActivity">
+        </activity>
+        <activity android:name=".QuestionSubjectActivity">
+        </activity>
+        <activity android:name=".AuthActivity">
+        </activity>
+        <activity android:name=".ChatActivity">
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
