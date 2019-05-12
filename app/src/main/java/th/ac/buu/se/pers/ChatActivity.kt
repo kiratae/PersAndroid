@@ -50,7 +50,7 @@ class ChatActivity : AppCompatActivity() {
             var messageText = input_text.text.toString()
             if (messageText != "") {
                 mReference.child("question").push().setValue(
-                    QuestionData("0", messageText, "1")
+                    QuestionData(messageText, "1")
                 )
             } else {
                 Toast.makeText(this, "No Message ?", Toast.LENGTH_LONG).show()
@@ -87,7 +87,7 @@ class ChatActivity : AppCompatActivity() {
 
             override fun onBindViewHolder(holder: MessageViewHolder, position: Int, model: QuestionData) {
                 holder.messageTextView.text = model.text
-                holder.messengerTextView.text = model.id.toString()
+                holder.messengerTextView.text = model.status.toString()
             }
 
         }
