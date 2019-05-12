@@ -5,13 +5,14 @@ import java.util.*
 
 class QuestionData {
 
-    var id: String? = null
     var text: String? = null
     var status: String? = null
     var time: Long = 0
 
-    constructor(id: String, text: String, status: String) {
-        this.id = id
+    constructor(
+        text: String,
+        status: String
+    ) {
         this.text = text
         this.status = status
 
