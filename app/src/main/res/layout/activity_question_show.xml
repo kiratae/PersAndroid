@@ -38,27 +38,27 @@
             android:layout_width="302dp"
             android:layout_height="35dp" tools:layout_editor_absoluteY="295dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_1"/>
     <TextView
             android:text="TextView"
             android:layout_width="302dp"
             android:layout_height="35dp" tools:layout_editor_absoluteY="405dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_3"/>
     <TextView
             android:text="TextView"
             android:layout_width="302dp"
             android:layout_height="35dp" tools:layout_editor_absoluteY="348dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_2"/>
     <TextView
             android:text="TextView"
             android:layout_width="302dp"
             android:layout_height="35dp" tools:layout_editor_absoluteY="461dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="8dp"
             tools:layout_editor_absoluteX="32dp" android:id="@+id/ans_4"/>
 </LinearLayout>
