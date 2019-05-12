@@ -1,5 +1,6 @@
 package th.ac.buu.se.pers
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -34,10 +35,10 @@ class AuthActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
-                Log.d("FIREBASENAJA", user.uid)
-                finish()
+                var intent = Intent(this.applicationContext, MainActivity::class.java)
+//                startActivity(intent)
             } else {
-
+                // User is signed out
             }
         }
 
@@ -80,14 +81,16 @@ class AuthActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
-
     override fun onStart() {
         super.onStart()
         mAuth!!.addAuthStateListener(mAuthListener!!)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (mAuthListener != null) {
+            mAuth!!.removeAuthStateListener(mAuthListener!!)
+        }
     }
 
 }
