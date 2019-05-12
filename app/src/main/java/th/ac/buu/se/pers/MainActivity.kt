@@ -43,10 +43,14 @@ class MainActivity : AppCompatActivity() {
 
         questionBtn.setOnClickListener {
             Toast.makeText(this.applicationContext, "Question Click", Toast.LENGTH_SHORT).show()
+            var intent = Intent(this.applicationContext, QuestionSubjectActivity::class.java)
+            startActivity(intent)
         }
 
         examBtn.setOnClickListener {
             Toast.makeText(this.applicationContext, "Exam Click", Toast.LENGTH_SHORT).show()
+            var intent = Intent(this.applicationContext, ExamSubjectActivity::class.java)
+            startActivity(intent)
         }
 
     }

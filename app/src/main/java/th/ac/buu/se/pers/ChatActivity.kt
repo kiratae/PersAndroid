@@ -123,7 +123,7 @@ class ChatActivity : AppCompatActivity() {
 
         init {
             row = itemView.findViewById(R.id.row)
-            messageTextView = itemView.findViewById(R.id.show_message)
+            messageTextView = itemView.findViewById(R.id.show_name)
             messengerTextView = itemView.findViewById(R.id.show_name)
         }
     }

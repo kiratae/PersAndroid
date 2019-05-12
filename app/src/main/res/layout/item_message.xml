@@ -15,11 +15,11 @@
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/show_sjid" android:textStyle="bold"/>
+                android:layout_height="wrap_content" android:id="@+id/show_m" android:textStyle="bold"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/show_sjname" android:textSize="16sp"
+                android:layout_height="wrap_content" android:id="@+id/show_mm" android:textSize="16sp"
                 android:layout_marginLeft="8dp"/>
     </LinearLayout>
 </LinearLayout>
