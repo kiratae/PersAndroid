@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/LoginTheme"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="16dp"
@@ -31,7 +32,7 @@
                       android:padding="16dp"
                       android:hint="E-mail"
                       android:textColor="#005792"
-                      style="@style/fontcolor"/>
+                      style="style/fontcolor"/>
 
             <EditText android:id="@+id/input_pass"
                       android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                       android:inputType="textPassword"
                       android:hint="Password"
                       android:textColor="#005792"
-                      style="@style/fontcolor"/>
+                      style="style/fontcolor"/>
 
             <Button android:id="@+id/btn_login"
                     android:layout_width="match_parent"
