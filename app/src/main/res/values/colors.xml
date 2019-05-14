@@ -9,4 +9,7 @@
     <color name="text">#FFFFFF</color>
     <color name="pers">#005792</color>
     <color name="text_edit">#005792</color>
+
+    <color name="menu_que">#005792</color>
+    <color name="menu_ex">#00bbf0</color>
 </resources>
