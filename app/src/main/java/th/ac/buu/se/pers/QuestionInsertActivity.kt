@@ -14,6 +14,9 @@ class QuestionInsertActivity : AppCompatActivity() {
 
     var COLLECTION_QUESTION = "question"
 
+    var question_ref: DatabaseReference? = null
+    var questionListener: ValueEventListener? = null
+
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
     var mAuthListener: FirebaseAuth.AuthStateListener? = null
     var mDatabase: FirebaseDatabase? = FirebaseDatabase.getInstance()
@@ -36,7 +39,7 @@ class QuestionInsertActivity : AppCompatActivity() {
         }
 
         val getIntent = intent
-        val isInsert: Boolean? = getIntent.getBooleanExtra("isInsert", true)
+        val isInsert: Boolean = getIntent.getBooleanExtra("isInsert", true)
         var question_id: String? = null
         val subject_id: String? = getIntent.getStringExtra("subject_id")
 
@@ -49,33 +52,28 @@ class QuestionInsertActivity : AppCompatActivity() {
         val incorrectText3 = findViewById<EditText>(R.id.incorrect_text_3)
         val saveBtn = findViewById<Button>(R.id.save_question_btn)
 
-        if(isInsert != true){
+        if(!isInsert){
 
             actionbar.title = "Edit Question"
             question_id = getIntent.getStringExtra("question_id")
-            val question_ref: DatabaseReference = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
-            var question: QuestionData?
-            var choice1: QuestionData.ChoicesData?
-            var choice2: QuestionData.ChoicesData?
-            var choice3: QuestionData.ChoicesData?
-            var choice4: QuestionData.ChoicesData?
+            question_ref = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
 
-            val questionListener = object : ValueEventListener {
+            questionListener = object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     // Get Post object and use the values to update the UI
-                    question = dataSnapshot.getValue<QuestionData>(QuestionData::class.java)
+                    val question:String? = dataSnapshot.child("text").getValue<String>(String::class.java)
                     //set actionbar title
-                    questionText.setText(question!!.text)
+                    questionText.setText(question!!)
 
-                    choice1 = dataSnapshot.child("choices").child("0").getValue<QuestionData.ChoicesData>(QuestionData.ChoicesData::class.java)
-                    choice2 = dataSnapshot.child("choices").child("1").getValue<QuestionData.ChoicesData>(QuestionData.ChoicesData::class.java)
-                    choice3 = dataSnapshot.child("choices").child("2").getValue<QuestionData.ChoicesData>(QuestionData.ChoicesData::class.java)
-                    choice4 = dataSnapshot.child("choices").child("3").getValue<QuestionData.ChoicesData>(QuestionData.ChoicesData::class.java)
+                    val choice1:String? = dataSnapshot.child("choices").child("0").child("text").getValue<String>(String::class.java)
+                    val choice2:String? = dataSnapshot.child("choices").child("1").child("text").getValue<String>(String::class.java)
+                    val choice3:String? = dataSnapshot.child("choices").child("2").child("text").getValue<String>(String::class.java)
+                    val choice4:String? = dataSnapshot.child("choices").child("3").child("text").getValue<String>(String::class.java)
 
-                    correctText.setText(choice1!!.text)
-                    incorrectText1.setText(choice2!!.text)
-                    incorrectText2.setText(choice3!!.text)
-                    incorrectText3.setText(choice4!!.text)
+                    correctText.setText(choice1!!)
+                    incorrectText1.setText(choice2!!)
+                    incorrectText2.setText(choice3!!)
+                    incorrectText3.setText(choice4!!)
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -84,7 +82,8 @@ class QuestionInsertActivity : AppCompatActivity() {
                     // ...
                 }
             }
-            question_ref.addValueEventListener(questionListener)
+
+
         }
 
         saveBtn.setOnClickListener {
@@ -119,21 +118,18 @@ class QuestionInsertActivity : AppCompatActivity() {
                     }
                 }else{
 
-                    mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).child("text").setValue(questionText.text.toString())
+                    val update_ref = mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
 
-                    val choicesData1 = QuestionData.ChoicesData(correctText.text.toString(),"correct")
-                    val choicesData2 = QuestionData.ChoicesData(incorrectText1.text.toString(),"incorrect")
-                    val choicesData3 = QuestionData.ChoicesData(incorrectText2.text.toString(),"incorrect")
-                    val choicesData4 = QuestionData.ChoicesData(incorrectText3.text.toString(),"incorrect")
+                    update_ref.child("choices").child("0").child("text").setValue(correctText.text.toString())
+                    update_ref.child("choices").child("1").child("text").setValue(incorrectText1.text.toString())
+                    update_ref.child("choices").child("2").child("text").setValue(incorrectText2.text.toString())
+                    update_ref.child("choices").child("3").child("text").setValue(incorrectText3.text.toString())
 
-                    mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(question_id).child("choices").child("0").setValue(choicesData1)
-                    mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(question_id).child("choices").child("1").setValue(choicesData2)
-                    mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(question_id).child("choices").child("2").setValue(choicesData3)
-                    mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(question_id).child("choices").child("3").setValue(choicesData4)
+                    update_ref.child("text").setValue(questionText.text.toString()).addOnSuccessListener {
+                        Toast.makeText(this.applicationContext, "Updated", Toast.LENGTH_SHORT).show()
 
-                    Toast.makeText(this.applicationContext, "Updated", Toast.LENGTH_SHORT).show()
-
-                    finish()
+                        finish()
+                    }
 
                 }
 
@@ -144,10 +140,16 @@ class QuestionInsertActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         mAuth!!.addAuthStateListener(mAuthListener!!)
+        if(question_ref != null) {
+            question_ref!!.addValueEventListener(questionListener!!)
+        }
     }
 
     override fun onStop() {
         super.onStop()
+        if(question_ref != null) {
+            question_ref!!.removeEventListener(questionListener!!)
+        }
         if (mAuthListener != null) {
             mAuth!!.removeAuthStateListener(mAuthListener!!)
         }

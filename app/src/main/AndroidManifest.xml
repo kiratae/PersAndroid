@@ -13,7 +13,7 @@
         </activity>
         <activity android:name=".StemInsertActivity">
         </activity>
-        <activity android:name=".QuestionActivity">
+        <activity android:name=".QuestionActivity" android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity android:name=".ExamActivity">
         </activity>
@@ -23,11 +23,11 @@
         </activity>
         <activity android:name=".ExamSubjectActivity">
         </activity>
-        <activity android:name=".QuestionInsertActivity">
+        <activity android:name=".QuestionInsertActivity" android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
-        <activity android:name=".QuestionListActivity" android:theme="@style/ListTheme">
+        <activity android:name=".QuestionListActivity" android:theme="@style/ListTheme" android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
-        <activity android:name=".QuestionSubjectActivity" android:theme="@style/ListTheme">
+        <activity android:name=".QuestionSubjectActivity" android:theme="@style/ListTheme" android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
                 android:name=".AuthActivity"

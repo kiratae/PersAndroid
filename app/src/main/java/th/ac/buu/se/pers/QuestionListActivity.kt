@@ -17,7 +17,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_question_list.*
 import android.support.design.widget.BottomSheetDialog
 import android.support.v7.app.AlertDialog
 
@@ -26,6 +25,8 @@ class QuestionListActivity : AppCompatActivity() {
 
     var COLLECTION_SUBJECTS = "subjects"
     var COLLECTION_QUESTION = "question"
+
+    var isAvailable = false
 
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
     var mAuthListener: FirebaseAuth.AuthStateListener? = null
@@ -73,7 +74,7 @@ class QuestionListActivity : AppCompatActivity() {
         // get element in layout
         var fab = findViewById<FloatingActionButton>(R.id.btn_fab_add)
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_question_lists)
-        recyclerView.layoutManager = LinearLayoutManager(this.applicationContext)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // button add product
         fab.setOnClickListener {
@@ -110,58 +111,80 @@ class QuestionListActivity : AppCompatActivity() {
 
                 holder.moreBtn.setOnClickListener {
 
-                    val inflater = LayoutInflater.from(holder.itemView.context)
-                    val bottomSheetView = inflater.inflate(R.layout.toolbar_question, null)
-                    val bottomSheetDialog = BottomSheetDialog(holder.itemView.context)
-                    bottomSheetDialog.setContentView(bottomSheetView)
+                    if(isAvailable)
+                        showBottomSheetDialog(model.id!!, subject_id, model.text!!)
 
-                    bottomSheetDialog.show()
-
-                    val questionText: TextView = bottomSheetView.findViewById(R.id.toolbar_qt_name)
-                    val editBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_edit)
-                    val removeBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_delete)
-
-                    questionText.text = model.text
-
-                    editBtn.setOnClickListener {
-                        Toast.makeText(it.context, "edit", Toast.LENGTH_SHORT).show()
-
-                        bottomSheetDialog.hide()
-
-                        val intent = Intent(bottomSheetView.context, QuestionInsertActivity::class.java)
-                        intent.putExtra("isInsert", false)
-                        intent.putExtra("subject_id", subject_id)
-                        intent.putExtra("question_id", model.id)
-                        startActivity(intent)
-                    }
-
-                    removeBtn.setOnClickListener {
-
-                        val builder = AlertDialog.Builder(bottomSheetView.context)
-                        builder.setTitle("Delete Question")
-                        builder.setMessage("Are you sure to delete this question?")
-
-                        builder.setPositiveButton("YES"){dialog, which ->
-                            mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(model.id.toString()).removeValue()
-                            Toast.makeText(it.context, "deleted!", Toast.LENGTH_SHORT).show()
-                            bottomSheetDialog.hide()
-                        }
-
-                        builder.setNeutralButton("Cancel"){_,_ ->
-                            Toast.makeText(applicationContext,"You cancelled the dialog.",Toast.LENGTH_SHORT).show()
-                        }
-
-                        val dialog: AlertDialog = builder.create()
-
-                        dialog.show()
-                    }
                 }
+
+//                holder.editBtn.setOnClickListener {
+//                    val intent = Intent(it.context, QuestionInsertActivity::class.java)
+//                    intent.putExtra("isInsert", false)
+//                    intent.putExtra("subject_id", subject_id)
+//                    intent.putExtra("question_id", model.id!!)
+//                    startActivity(intent)
+//                }
             }
 
         }
 
         recyclerView.adapter = mFirebaseAdapter
 
+    }
+
+    private fun showBottomSheetDialog(question_id: String, subject_id: String, text: String) {
+        val bottomSheetView = layoutInflater.inflate(R.layout.toolbar_question, null)
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        val questionText: TextView = bottomSheetView.findViewById(R.id.toolbar_qt_name)
+        val editBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_edit)
+        val removeBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_delete)
+
+        questionText.text = text
+
+        editBtn.setOnClickListener {
+            if (bottomSheetDialog.isShowing) {
+                bottomSheetDialog.dismiss()
+                val intent = Intent(bottomSheetView.context, QuestionInsertActivity::class.java)
+                intent.putExtra("isInsert", false)
+                intent.putExtra("subject_id", subject_id)
+                intent.putExtra("question_id", question_id)
+                startActivity(intent)
+            }
+
+        }
+
+        removeBtn.setOnClickListener {
+
+            bottomSheetDialog.dismiss()
+
+            if(isAvailable)
+                showAlertDialog(question_id, subject_id, text)
+
+        }
+
+        bottomSheetDialog.show()
+
+    }
+
+    private fun showAlertDialog(question_id: String, subject_id: String, text: String) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Delete Question")
+        builder.setMessage("Are you sure to delete this question?")
+
+        builder.setPositiveButton("YES"){dialog, which ->
+
+            mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(question_id).setValue(null)
+
+        }
+
+        builder.setNeutralButton("Cancel"){_,_ ->
+            Toast.makeText(applicationContext,"You cancelled the dialog.",Toast.LENGTH_SHORT).show()
+        }
+
+        val dialog: AlertDialog = builder.create()
+
+        dialog.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -171,6 +194,7 @@ class QuestionListActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        isAvailable = true
         mAuth!!.addAuthStateListener(mAuthListener!!)
         if (mFirebaseAdapter != null) {
             mFirebaseAdapter!!.startListening()
@@ -179,6 +203,7 @@ class QuestionListActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        isAvailable = false
         if (mFirebaseAdapter != null) {
             mFirebaseAdapter!!.stopListening()
         }
@@ -187,5 +212,7 @@ class QuestionListActivity : AppCompatActivity() {
     class QuestionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView = itemView.findViewById(R.id.question_item_text)
         var moreBtn: Button = itemView.findViewById(R.id.more_btn)
+//        var editBtn: Button = itemView.findViewById(R.id.edit_btn)
     }
+
 }

@@ -12,6 +12,9 @@ class QuestionActivity : AppCompatActivity() {
 
     var COLLECTION_QUESTION = "question"
 
+    var question_ref: DatabaseReference? = null
+    var questionListener: ValueEventListener? = null
+
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
     var mAuthListener: FirebaseAuth.AuthStateListener? = null
     var mDatabase: FirebaseDatabase? = FirebaseDatabase.getInstance()
@@ -29,7 +32,7 @@ class QuestionActivity : AppCompatActivity() {
         val getIntent = intent
         val subject_id: String? = getIntent.getStringExtra("subject_id")
         val question_id: String? = getIntent.getStringExtra("question_id")
-        val question__ref: DatabaseReference = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
+        question_ref = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
         var question: QuestionData?
         var choice1: QuestionData.ChoicesData?
         var choice2: QuestionData.ChoicesData?
@@ -42,7 +45,7 @@ class QuestionActivity : AppCompatActivity() {
         val choiceText3 = findViewById<TextView>(R.id.choice_txv_3)
         val choiceText4 = findViewById<TextView>(R.id.choice_txv_4)
 
-        val questionListener = object : ValueEventListener {
+        questionListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 question = dataSnapshot.getValue<QuestionData>(QuestionData::class.java)
@@ -66,7 +69,7 @@ class QuestionActivity : AppCompatActivity() {
                 // ...
             }
         }
-        question__ref.addValueEventListener(questionListener)
+        question_ref!!.addValueEventListener(questionListener!!)
 
         Toast.makeText(this.applicationContext, question_id, Toast.LENGTH_LONG).show()
 
@@ -93,6 +96,7 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        question_ref!!.removeEventListener(questionListener!!)
         onBackPressed()
         return true
     }

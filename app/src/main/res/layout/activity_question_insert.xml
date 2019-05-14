@@ -63,7 +63,6 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:hint="Correct Choice1"
                 android:textColorHint="#d9faff"
@@ -93,7 +92,6 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
@@ -106,7 +104,6 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
@@ -118,7 +115,6 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/incorrect_text_3"
                 android:layout_marginLeft="5dp"
