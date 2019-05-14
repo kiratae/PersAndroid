@@ -33,7 +33,7 @@
                     android:id="@+id/examination_btn"
                     android:textAlignment="center"
                     android:textColor="#FFFFFFFF"
-                    android:background="@drawable/menu_ex"/>
+                    android:background="@drawable/menu_ex" tools:visibility="visible"/>
         </LinearLayout>
 
     </LinearLayout>
