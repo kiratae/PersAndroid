@@ -18,18 +18,20 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:background="#FFFFFF"
             android:drawableStart="@mipmap/ic_create"
             android:gravity="center_vertical"
-            android:text="แก้ไข" />
+            android:text="EditQuestion"/>
 
     <Button
             android:id="@+id/question_menu_bottom_sheet_delete"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:background="#FFFFFF"
             android:gravity="center_vertical"
             android:drawableStart="@mipmap/ic_delete"
-            android:text="ลบ" />
+            android:text="deleteQuestion"/>
 
 
 </LinearLayout>

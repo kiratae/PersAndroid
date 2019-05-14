@@ -7,4 +7,64 @@
         android:layout_height="match_parent"
         tools:context=".StemInsertActivity">
 
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:text="เพิ่มชุดข้อสอบ"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#127DE7"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp" android:id="@+id/textView"/>
+            <TextView
+                    android:text="จำนวน  2/5 "
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView3"/>
+            <TextView
+                    android:text="เพิ่มคำถาม"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView2"/>
+            <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_alignBottom="@+id/recycle_stem">
+            </android.support.v7.widget.RecyclerView>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <Button
+                            android:text="ยกเลิก"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/button01" android:layout_weight="1"/>
+                    <Button
+                            android:text="บันทึก"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/button02" android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

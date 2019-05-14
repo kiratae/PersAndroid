@@ -10,51 +10,68 @@
         tools:context=".QuestionInsertActivity">
 
 
-    <TextView
-            android:text="Question"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="24sp"/>
-    <EditText
+            android:layout_height="91dp">
+        <TextView
+                android:text="Question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:gravity="start|top"
+                android:ems="10"
+                android:id="@+id/questionText" android:singleLine="false"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:gravity="start|top"
-            android:ems="10"
-            android:id="@+id/questionText" android:singleLine="false"/>
-    <TextView
-            android:text="Correct Choice"
+            android:layout_height="93dp">
+        <TextView
+                android:text="Correct Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/correct_text"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="24sp"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/correct_text"/>
-    <TextView
-            android:text="Incorrect Choice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView6" android:textSize="24sp"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/incorrect_text_1"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/incorrect_text_2"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/incorrect_text_3"/>
+            android:layout_height="213dp">
+        <TextView
+                android:text="Incorrect Choice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView6" android:textSize="24sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/incorrect_text_1"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/incorrect_text_2"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/incorrect_text_3"/>
+    </LinearLayout>
     <Button
             android:text="Save"
+            android:textColor="#ffffff"
+            android:background="@drawable/btnlog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/save_question_btn"/>
 </LinearLayout>
