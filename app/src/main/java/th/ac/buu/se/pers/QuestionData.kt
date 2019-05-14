@@ -5,17 +5,32 @@ import java.util.*
 
 class QuestionData {
 
+    var id: String? = null
     var text: String? = null
-    var status: String? = null
-
     constructor(
-        text: String,
-        status: String
+        id: String,
+        text: String
     ) {
+        this.id = id
         this.text = text
-        this.status = status
     }
 
     constructor() {}
+
+    class ChoicesData{
+
+        var text: String? = null
+        var type: String? = null
+
+        constructor(
+            text: String,
+            type: String
+        ) {
+            this.text = text
+            this.type = type
+        }
+
+        constructor() {}
+    }
 
 }

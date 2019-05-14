@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
         tools:context=".QuestionInsertActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+            android:text="Question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="24sp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:gravity="start|top"
+            android:ems="10"
+            android:id="@+id/questionText" android:singleLine="false"/>
+    <TextView
+            android:text="Correct Choice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="24sp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/correct_text"/>
+    <TextView
+            android:text="Incorrect Choice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView6" android:textSize="24sp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/incorrect_text_1"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/incorrect_text_2"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/incorrect_text_3"/>
+    <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/save_question_btn"/>
+</LinearLayout>

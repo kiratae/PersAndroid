@@ -32,7 +32,7 @@ class AuthActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
-                Log.i("FIREBASENAJA", user!!.uid)
+                Log.i("FIREBASENAJA", user.uid)
                 var intent = Intent(this.applicationContext, MainActivity::class.java)
                 startActivity(intent)
             } else {

@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_question_list.*
 class QuestionListActivity : AppCompatActivity() {
 
     var COLLECTION_SUBJECTS = "subjects"
-    var COLLECTION_QUESTIONS = "questions"
+    var COLLECTION_QUESTION = "question"
 
     var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
     var mAuthListener: FirebaseAuth.AuthStateListener? = null
@@ -73,12 +74,13 @@ class QuestionListActivity : AppCompatActivity() {
         // button add product
         fab.setOnClickListener {
             var intent = Intent(this, QuestionInsertActivity::class.java)
+            intent.putExtra("subject_id", subject_id)
             startActivity(intent)
         }
 
         val mReference = mDatabase!!.reference
 
-        val query: Query = mReference.child(COLLECTION_QUESTIONS).child(subject_id!!).child(mAuth!!.currentUser!!.uid)
+        val query: Query = mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id)
         val options = FirebaseRecyclerOptions.Builder<QuestionData>()
             .setQuery(query, QuestionData::class.java)
             .build()
@@ -91,6 +93,14 @@ class QuestionListActivity : AppCompatActivity() {
 
             override fun onBindViewHolder(holder: QuestionViewHolder, position: Int, model: QuestionData) {
                 holder.name.text = model.text
+
+                holder.itemView.setOnClickListener {
+                    Toast.makeText(it.context, model.text, Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(it.context, QuestionActivity::class.java)
+                    intent.putExtra("question_id", model.id)
+                    startActivity(intent)
+                }
             }
 
         }
@@ -121,6 +131,5 @@ class QuestionListActivity : AppCompatActivity() {
 
     class QuestionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView = itemView.findViewById(R.id.show_mm)
-
     }
 }
