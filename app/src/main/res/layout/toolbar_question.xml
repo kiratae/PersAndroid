@@ -21,7 +21,7 @@
             android:background="#FFFFFF"
             android:drawableStart="@mipmap/ic_create"
             android:gravity="center_vertical"
-            android:text="EditQuestion"/>
+            android:text="Edit Question"/>
 
     <Button
             android:id="@+id/question_menu_bottom_sheet_delete"
@@ -31,7 +31,7 @@
             android:background="#FFFFFF"
             android:gravity="center_vertical"
             android:drawableStart="@mipmap/ic_delete"
-            android:text="deleteQuestion"/>
+            android:text="delete Question"/>
 
 
 </LinearLayout>
