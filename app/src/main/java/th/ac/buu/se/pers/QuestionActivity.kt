@@ -29,7 +29,7 @@ class QuestionActivity : AppCompatActivity() {
         val getIntent = intent
         val subject_id: String? = getIntent.getStringExtra("subject_id")
         val question_id: String? = getIntent.getStringExtra("question_id")
-        val subject_ref: DatabaseReference = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
+        val question__ref: DatabaseReference = mDatabase!!.reference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id!!).child(question_id!!).ref
         var question: QuestionData?
         var choice1: QuestionData.ChoicesData?
         var choice2: QuestionData.ChoicesData?
@@ -66,7 +66,7 @@ class QuestionActivity : AppCompatActivity() {
                 // ...
             }
         }
-        subject_ref.addValueEventListener(questionListener)
+        question__ref.addValueEventListener(questionListener)
 
         Toast.makeText(this.applicationContext, question_id, Toast.LENGTH_LONG).show()
 

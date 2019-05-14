@@ -78,6 +78,7 @@ class QuestionListActivity : AppCompatActivity() {
         // button add product
         fab.setOnClickListener {
             var intent = Intent(this, QuestionInsertActivity::class.java)
+            intent.putExtra("isInsert", true)
             intent.putExtra("subject_id", subject_id)
             startActivity(intent)
         }
@@ -124,6 +125,14 @@ class QuestionListActivity : AppCompatActivity() {
 
                     editBtn.setOnClickListener {
                         Toast.makeText(it.context, "edit", Toast.LENGTH_SHORT).show()
+
+                        bottomSheetDialog.hide()
+
+                        val intent = Intent(bottomSheetView.context, QuestionInsertActivity::class.java)
+                        intent.putExtra("isInsert", false)
+                        intent.putExtra("subject_id", subject_id)
+                        intent.putExtra("question_id", model.id)
+                        startActivity(intent)
                     }
 
                     removeBtn.setOnClickListener {
