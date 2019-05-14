@@ -3,6 +3,9 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/backgroud_color_white"
+                android:layout_marginBottom="4dp"
+                android:padding="8dp"
                 android:id="@+id/row">
 
 
@@ -16,7 +19,6 @@
             android:layout_marginStart="4dp"
             android:maxLines="1"
             android:paddingEnd="4dp"
-            android:textColor="#000000"
             android:textSize="18sp"
             tools:text="Year"/>
 
@@ -24,7 +26,7 @@
             android:id="@+id/recipe_list_text_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_centerVertical="false"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/show_year">
 
@@ -37,8 +39,6 @@
                 android:layout_marginRight="8dp"
                 android:textSize="18sp"
                 tools:text="code"/>
-
-
 
 
     </RelativeLayout>
@@ -54,7 +54,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="20dp"
                 android:textSize="18sp"
                 tools:text="name"/>
 
