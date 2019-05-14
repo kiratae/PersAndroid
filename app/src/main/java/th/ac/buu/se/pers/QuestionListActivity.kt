@@ -40,7 +40,7 @@ class QuestionListActivity : AppCompatActivity() {
         val subject_ref: DatabaseReference = mDatabase!!.reference.child(COLLECTION_SUBJECTS).child(subject_id!!).ref
         var subject: SubjectData?
 
-        val postListener = object : ValueEventListener {
+        val subjectListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 subject = dataSnapshot.getValue<SubjectData>(SubjectData::class.java)
@@ -54,7 +54,7 @@ class QuestionListActivity : AppCompatActivity() {
                 // ...
             }
         }
-        subject_ref.addValueEventListener(postListener)
+        subject_ref.addValueEventListener(subjectListener)
 
         //set back button
         actionbar!!.setDisplayHomeAsUpEnabled(true)
@@ -98,6 +98,7 @@ class QuestionListActivity : AppCompatActivity() {
                     Toast.makeText(it.context, model.text, Toast.LENGTH_LONG).show()
 
                     val intent = Intent(it.context, QuestionActivity::class.java)
+                    intent.putExtra("subject_id", subject_id)
                     intent.putExtra("question_id", model.id)
                     startActivity(intent)
                 }
