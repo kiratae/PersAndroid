@@ -1,8 +1,10 @@
 package th.ac.buu.se.pers
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.ActionBar
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -44,33 +47,42 @@ class QuestionSubjectActivity : AppCompatActivity() {
         }
 
         //question_subject_recycler
-        var recyclerView = findViewById<RecyclerView>(R.id.question_subject_recycler)
+        val recyclerView = findViewById<RecyclerView>(R.id.question_subject_recycler)
+        recyclerView.layoutManager = LinearLayoutManager(this.applicationContext)
 
-        var mReference = mDatabase!!.reference
+        val mReference = mDatabase!!.reference
 
-        mReference.child(COLLECTION_SUBJECTS).push().setValue(
-            SubjectData("พล-1234", "พละศึกษา", "2561")
-        )
+//        mReference.child(COLLECTION_SUBJECTS).setValue(
+//            SubjectData(mReference.key.toString(), "ท-0123", "ภาษาไทย", "1/2561")
+//        )
 
+//        val subjectData = SubjectData(mReference.key.toString(), "ท-0123", "ภาษาไทย", "1/2561")
+//
+//        mReference.setValue(subjectData)
 
-        var query: Query = mReference.child(COLLECTION_SUBJECTS)
-        var options = FirebaseRecyclerOptions.Builder<SubjectData>()
+        val query: Query = mReference.child(COLLECTION_SUBJECTS)
+        val options = FirebaseRecyclerOptions.Builder<SubjectData>()
             .setQuery(query, SubjectData::class.java)
             .build()
-
-        Log.i("FIREBASENAJA", query.toString())
 
         mFirebaseAdapter = object : FirebaseRecyclerAdapter<SubjectData, SubjectViewHolder>(options) {
             override fun onCreateViewHolder(p0: ViewGroup, p1: Int): SubjectViewHolder {
                 val inflater = LayoutInflater.from(p0.context)
-                return SubjectViewHolder(inflater.inflate(R.layout.item_message, p0, false))
+                return SubjectViewHolder(inflater.inflate(R.layout.item_subject, p0, false))
             }
 
             override fun onBindViewHolder(holder: SubjectViewHolder, position: Int, model: SubjectData) {
-                holder.show_code.text = model.code
-                holder.show_name.text = model.name
-//                holder.show_year.text = model.year
-                Log.i("FIREBASENAJA", model.code)
+                holder.code.text = model.code
+                holder.name.text = model.name
+                holder.year.text = model.year
+
+                holder.itemView.setOnClickListener {
+                    Toast.makeText(it.context, model.code+" "+model.name, Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(it.context, QuestionListActivity::class.java)
+                    intent.putExtra("subject_id", model.id)
+                    startActivity(intent)
+                }
             }
 
         }
@@ -99,15 +111,9 @@ class QuestionSubjectActivity : AppCompatActivity() {
     }
 
     class SubjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var show_code: TextView
-        var show_name: TextView
-//        var show_year: TextView
-
-        init {
-            show_code = itemView.findViewById(R.id.show_m)
-            show_name = itemView.findViewById(R.id.show_mm)
-//            show_year = itemView.findViewById(R.id.show_year)
-        }
+        var code: TextView = itemView.findViewById(R.id.show_code)
+        var name: TextView = itemView.findViewById(R.id.show_name)
+        var year: TextView = itemView.findViewById(R.id.show_year)
 
     }
 }

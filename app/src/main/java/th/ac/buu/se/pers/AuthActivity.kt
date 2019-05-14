@@ -22,7 +22,7 @@ class AuthActivity : AppCompatActivity() {
         //actionbar
         val actionbar = supportActionBar
         //set actionbar title
-        actionbar!!.title = "Auth Activity"
+        //actionbar!!.title = "Auth Activity"
 
         var btn_login = findViewById<Button>(R.id.btn_login)
         var btn_regis = findViewById<Button>(R.id.btn_regis)
@@ -32,7 +32,7 @@ class AuthActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {
-                Log.i("FIREBASENAJA", user!!.uid)
+                Log.i("FIREBASENAJA", user.uid)
                 var intent = Intent(this.applicationContext, MainActivity::class.java)
                 startActivity(intent)
             } else {
