@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
     <TextView
-            android:text="คำถาม"
+            android:text="Question"
             android:layout_width="359dp"
             android:layout_height="56dp"
             android:id="@+id/Question" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="10dp"
@@ -24,41 +24,97 @@
             android:layout_width="395dp"
             android:layout_height="3dp"
             android:background="#000000"
+            android:layout_marginLeft="10dp"
             tools:layout_editor_absoluteY="174dp" tools:layout_editor_absoluteX="8dp"
             android:backgroundTint="#020202"/>
     <TextView
             android:text="TextView"
             android:layout_width="377dp"
-            android:layout_height="83dp" tools:layout_editor_absoluteY="190dp"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="190dp"
+            android:textSize="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
             tools:layout_editor_absoluteX="16dp" android:id="@+id/question_txv"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="302dp"
-            android:layout_height="35dp" tools:layout_editor_absoluteY="295dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_1"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="302dp"
-            android:layout_height="35dp" tools:layout_editor_absoluteY="405dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_2"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="302dp"
-            android:layout_height="35dp" tools:layout_editor_absoluteY="348dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_3"/>
-    <TextView
-            android:text="TextView"
-            android:layout_width="302dp"
-            android:layout_height="35dp" tools:layout_editor_absoluteY="461dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_4"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="A."
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" android:id="@+id/textView6"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="302dp"
+                android:layout_height="35dp" tools:layout_editor_absoluteY="295dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:textColor="#85ef47"
+                android:layout_marginTop="8dp"
+                tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_1"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    >
+        <TextView
+                android:text="B."
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="35dp" android:id="@+id/textView7" />
+        <TextView
+                android:text="TextView"
+                android:layout_width="302dp"
+                android:layout_height="35dp" tools:layout_editor_absoluteY="405dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_2"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="43dp">
+        <TextView
+                android:text="C."
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="35dp" android:id="@+id/textView8"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="302dp"
+                android:layout_height="35dp" tools:layout_editor_absoluteY="461dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_4"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+        <TextView
+                android:text="D."
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="35dp" android:id="@+id/textView9"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="302dp"
+                android:layout_height="35dp" tools:layout_editor_absoluteY="348dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="20dp"
+                android:layout_marginTop="8dp"
+                tools:layout_editor_absoluteX="32dp" android:id="@+id/choice_txv_3"/>
+    </LinearLayout>
 </LinearLayout>
