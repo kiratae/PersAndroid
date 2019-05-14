@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#005792</color>
     <color name="colorAccent">#00bbf0</color>
 
+    <color name="backgroud_color">#FFDDDDDD</color>
+    <color name="backgroud_color_white">#FFF</color>
+
     <color name="btn_login">#005792</color>
     <color name="btn_regis">#00bbf0</color>
     <color name="text">#FFFFFF</color>

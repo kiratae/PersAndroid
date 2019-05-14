@@ -3,9 +3,10 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/row"
-                android:layout_margin="5dp"
-                android:background="@color/menu_que">
+                android:background="@color/backgroud_color_white"
+                android:layout_marginBottom="4dp"
+                android:padding="8dp"
+                android:id="@+id/row">
 
 
     <TextView
@@ -13,12 +14,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:paddingTop="10dp"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="2dp"
             android:layout_marginStart="4dp"
             android:maxLines="1"
             android:paddingEnd="4dp"
-            android:textColor="#FFFFFF"
             android:textSize="18sp"
             tools:text="Year"/>
 
@@ -26,9 +26,9 @@
             android:id="@+id/recipe_list_text_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="false"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/show_year"
-            android:paddingTop="10dp">
+            android:layout_toStartOf="@id/show_year">
 
 
         <TextView
@@ -37,11 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 tools:text="code"/>
-
-
 
 
     </RelativeLayout>
@@ -57,9 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textColor="#FFFFFF"
                 android:textSize="18sp"
-                android:paddingBottom="10dp"
                 tools:text="name"/>
 
     </LinearLayout>
