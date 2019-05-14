@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -17,6 +18,9 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_question_list.*
+import android.support.design.widget.BottomSheetDialog
+
+
 
 class QuestionListActivity : AppCompatActivity() {
 
@@ -88,7 +92,7 @@ class QuestionListActivity : AppCompatActivity() {
         mFirebaseAdapter = object : FirebaseRecyclerAdapter<QuestionData, QuestionViewHolder>(options) {
             override fun onCreateViewHolder(p0: ViewGroup, p1: Int): QuestionViewHolder {
                 val inflater = LayoutInflater.from(p0.context)
-                return QuestionViewHolder(inflater.inflate(R.layout.item_message, p0, false))
+                return QuestionViewHolder(inflater.inflate(R.layout.item_question, p0, false))
             }
 
             override fun onBindViewHolder(holder: QuestionViewHolder, position: Int, model: QuestionData) {
@@ -101,6 +105,30 @@ class QuestionListActivity : AppCompatActivity() {
                     intent.putExtra("subject_id", subject_id)
                     intent.putExtra("question_id", model.id)
                     startActivity(intent)
+                }
+
+                holder.moreBtn.setOnClickListener {
+
+                    val inflater = LayoutInflater.from(holder.itemView.context)
+                    val bottomSheetView = inflater.inflate(R.layout.toolbar_question, null)
+                    val bottomSheetDialog = BottomSheetDialog(holder.itemView.context)
+                    bottomSheetDialog.setContentView(bottomSheetView)
+
+                    bottomSheetDialog.show()
+
+                    val questionText: TextView = bottomSheetView.findViewById(R.id.toolbar_qt_name)
+                    val editBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_edit)
+                    val removeBtn: Button = bottomSheetView.findViewById(R.id.question_menu_bottom_sheet_delete)
+
+                    questionText.text = model.text
+
+                    editBtn.setOnClickListener {
+                        Toast.makeText(it.context, "edit", Toast.LENGTH_SHORT).show()
+                    }
+
+                    removeBtn.setOnClickListener {
+                        Toast.makeText(it.context, "delete", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 
@@ -131,6 +159,7 @@ class QuestionListActivity : AppCompatActivity() {
     }
 
     class QuestionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var name: TextView = itemView.findViewById(R.id.show_mm)
+        var name: TextView = itemView.findViewById(R.id.question_item_text)
+        var moreBtn: Button = itemView.findViewById(R.id.more_btn)
     }
 }
