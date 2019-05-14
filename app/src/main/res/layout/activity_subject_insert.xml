@@ -25,5 +25,5 @@
             android:text="@string/save"
             android:background="@drawable/btnlog"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/save_subject_btn"/>
+            android:layout_height="wrap_content" android:id="@+id/save_subject_btn" android:textColor="#FFFFFF"/>
 </LinearLayout>
