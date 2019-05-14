@@ -19,15 +19,15 @@
         </activity>
         <activity android:name=".ExamInsertActivity">
         </activity>
-        <activity android:name=".ExamListActivity">
+        <activity android:name=".ExamListActivity" android:theme="@style/ListTheme">
         </activity>
         <activity android:name=".ExamSubjectActivity">
         </activity>
         <activity android:name=".QuestionInsertActivity">
         </activity>
-        <activity android:name=".QuestionListActivity">
+        <activity android:name=".QuestionListActivity" android:theme="@style/ListTheme">
         </activity>
-        <activity android:name=".QuestionSubjectActivity">
+        <activity android:name=".QuestionSubjectActivity" android:theme="@style/ListTheme">
         </activity>
         <activity
                 android:name=".AuthActivity"
