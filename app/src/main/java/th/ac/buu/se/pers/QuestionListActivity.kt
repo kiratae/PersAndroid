@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_question_list.*
 import android.support.design.widget.BottomSheetDialog
-
+import android.support.v7.app.AlertDialog
 
 
 class QuestionListActivity : AppCompatActivity() {
@@ -127,7 +127,24 @@ class QuestionListActivity : AppCompatActivity() {
                     }
 
                     removeBtn.setOnClickListener {
-                        Toast.makeText(it.context, "delete", Toast.LENGTH_SHORT).show()
+
+                        val builder = AlertDialog.Builder(bottomSheetView.context)
+                        builder.setTitle("Delete Question")
+                        builder.setMessage("Are you sure to delete this question?")
+
+                        builder.setPositiveButton("YES"){dialog, which ->
+                            mReference.child(COLLECTION_QUESTION).child(mAuth!!.currentUser!!.uid).child(subject_id).child(model.id.toString()).removeValue()
+                            Toast.makeText(it.context, "deleted!", Toast.LENGTH_SHORT).show()
+                            bottomSheetDialog.hide()
+                        }
+
+                        builder.setNeutralButton("Cancel"){_,_ ->
+                            Toast.makeText(applicationContext,"You cancelled the dialog.",Toast.LENGTH_SHORT).show()
+                        }
+
+                        val dialog: AlertDialog = builder.create()
+
+                        dialog.show()
                     }
                 }
             }
