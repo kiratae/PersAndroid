@@ -6,17 +6,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <Button
-                android:text="QUESTION"
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/bg_menu">
+
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/question_btn"/>
-        <Button
-                android:text="EXAMINATION"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/examination_btn"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+            <Button
+                    android:text="QUESTION"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:textSize="25dp"
+                    android:id="@+id/question_btn"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/menu_que"/>
+            <Button
+                    android:text="EXAMINATION"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:textSize="25dp"
+                    android:id="@+id/examination_btn"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFFFF"
+                    android:background="@drawable/menu_ex"/>
+        </LinearLayout>
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
