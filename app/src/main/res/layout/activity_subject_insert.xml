@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_margin="5dp"
         tools:context=".SubjectInsertActivity">
 
     <EditText
@@ -13,15 +14,16 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/subject_code_edt" android:hint="รหัสวิชา"/>
+            android:id="@+id/subject_code_edt" android:hint="subject code"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/subject_name_edt" android:hint="ชื่อวิชา"/>
+            android:id="@+id/subject_name_edt" android:hint="subject name"/>
     <Button
             android:text="@string/save"
+            android:background="@drawable/btnlog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/save_subject_btn"/>
 </LinearLayout>

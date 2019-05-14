@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="8dp"
+        android:layout_margin="5dp"
         tools:context=".QuestionInsertActivity">
 
 
@@ -29,7 +30,7 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="93dp">
+            android:layout_height="263dp">
         <TextView
                 android:text="Correct Choice"
                 android:layout_width="match_parent"
@@ -40,11 +41,6 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/correct_text"/>
-    </LinearLayout>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="213dp">
         <TextView
                 android:text="Incorrect Choice"
                 android:layout_width="match_parent"
@@ -70,6 +66,7 @@
     </LinearLayout>
     <Button
             android:text="Save"
+            android:layout_marginTop="20dp"
             android:textColor="#ffffff"
             android:background="@drawable/btnlog"
             android:layout_width="match_parent"
