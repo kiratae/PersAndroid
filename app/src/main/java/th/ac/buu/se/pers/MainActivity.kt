@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         var questionBtn = findViewById<Button>(R.id.question_btn)
         var examBtn = findViewById<Button>(R.id.examination_btn)
+        examBtn.isEnabled = false
 
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser

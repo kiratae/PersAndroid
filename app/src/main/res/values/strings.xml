@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Pers</string>
-    <string name="send">Send</string>
-    <string name="text">Text</string>
+    <string name="app_name">PERS</string>
+    <string name="save">Save</string>
+    <string name="question_manage">Questions Management</string>
+    <string name="exam_manage">Exams Management</string>
+
     <string name="vertical_ellipsis">&#8942;</string>
 </resources>

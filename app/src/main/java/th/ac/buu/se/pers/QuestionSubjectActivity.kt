@@ -3,6 +3,7 @@ package th.ac.buu.se.pers
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -44,6 +45,15 @@ class QuestionSubjectActivity : AppCompatActivity() {
             if (user == null) {
                 finish()
             }
+        }
+
+        // get element in layout
+        var fab = findViewById<FloatingActionButton>(R.id.btn_fab_add)
+
+        // button add product
+        fab.setOnClickListener {
+            var intent = Intent(this, SubjectInsertActivity::class.java)
+            startActivity(intent)
         }
 
         //question_subject_recycler
