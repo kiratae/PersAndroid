@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".SubjectInsertActivity">
+        </activity>
         <activity android:name=".StemInsertActivity">
         </activity>
         <activity android:name=".QuestionActivity">
@@ -27,7 +29,9 @@
         </activity>
         <activity android:name=".QuestionSubjectActivity">
         </activity>
-        <activity android:name=".AuthActivity" android:theme="@style/LoginTheme">
+        <activity
+                android:name=".AuthActivity"
+                android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
