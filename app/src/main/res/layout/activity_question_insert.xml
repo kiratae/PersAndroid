@@ -7,68 +7,133 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="8dp"
-        android:layout_margin="5dp"
         tools:context=".QuestionInsertActivity">
 
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="91dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/menu_que">
         <TextView
                 android:text="Question"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="24sp"/>
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/textView3"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:gravity="start|top"
                 android:ems="10"
-                android:id="@+id/questionText" android:singleLine="false"/>
+                android:padding="5dp"
+                android:id="@+id/questionText"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:hint="question"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#d9faff"
+                android:singleLine="false"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="263dp">
+            android:layout_height="wrap_content"
+            android:background="@color/menu_que"
+            android:layout_margin="5dp">
         <TextView
                 android:text="Correct Choice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="24sp"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                android:textSize="24sp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
+                android:hint="Correct Choice1"
+                android:textColorHint="#d9faff"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:id="@+id/correct_text"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="5dp"
+            android:background="@color/menu_que">
         <TextView
                 android:text="Incorrect Choice"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView6" android:textSize="24sp"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="24sp" android:textStyle="bold"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/incorrect_text_1"/>
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/incorrect_text_1"
+                android:textColorHint="#d9faff"
+                android:textColor="#FFFFFF"
+                android:hint="Incorrect Choice2"
+                />
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/incorrect_text_2"/>
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/incorrect_text_2"
+                android:textColorHint="#d9faff"
+                android:textColor="#FFFFFF"
+                android:hint="Incorrect Choice3"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/incorrect_text_3"/>
+                android:id="@+id/incorrect_text_3"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="#d9faff"
+                android:textColor="#FFFFFF"
+                android:hint="Incorrect Choice4"/>
     </LinearLayout>
     <Button
             android:text="Save"
-            android:layout_marginTop="20dp"
             android:textColor="#ffffff"
             android:background="@drawable/btnlog"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/save_question_btn"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/save_question_btn"/>
 </LinearLayout>
